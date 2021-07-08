@@ -3,6 +3,8 @@ pipeline {
     agent any
     stages {
 
+        /*
+
         stage('Install Dependencies'){
             steps{
 
@@ -15,10 +17,8 @@ pipeline {
       
         stage('Test'){
             steps{
-                /*
-                dir("service1") {
-                        sh "python3 -m pytest --cov=app"
-                }*/
+                
+                //  dir("service1") {sh "python3 -m pytest --cov=app"}
                
                 dir("service2") {
                         sh "python3 -m pytest --cov=app"
@@ -46,10 +46,11 @@ pipeline {
             }
         } 
         
+        */
 
         stage('Deploy'){
             steps{
-                sh 'scp docker-compose.yaml 35.184.174.59:docker-compose.yaml && docker-compose push'
+                sh 'scp docker-compose.yaml jenkins@35.184.174.59:docker-compose.yaml && sudo docker-compose push'
                 sh "ssh 35.184.174.59 sudo docker stack deploy --compose-file docker-compose.yaml flaskapp"
                
             }

@@ -1,5 +1,4 @@
 
-pwd
 cd service2
 python3 -m pytest --cov=app
 cd ../service3

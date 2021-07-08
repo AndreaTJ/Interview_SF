@@ -50,7 +50,7 @@ pipeline {
 
         stage('Deploy'){
             steps{
-                sh 'docker-compose push && scp docker-compose.yaml jenkins@35.184.174.59:docker-compose.yaml'
+                sh 'sudo docker-compose push && scp docker-compose.yaml jenkins@35.184.174.59:docker-compose.yaml'
                 sh "ssh 35.184.174.59 sudo docker stack deploy --compose-file docker-compose.yaml flaskapp"
                
             }

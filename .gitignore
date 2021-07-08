@@ -20,3 +20,5 @@ service1/.coverage
 service2/.coverage
 service3/.coverage
 service4/.coverage
+
+.pytest_cache/

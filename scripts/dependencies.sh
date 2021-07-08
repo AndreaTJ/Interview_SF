@@ -1,8 +1,3 @@
-sudo apt-get python3-pytest
-"""
-sudo apt-get python3-pip
-pip pytest
-pip pytest-cov
-pip flask
-pip flask_testing
-"""
+sudo apt-get udpate
+sudo apt-get install python3-pip
+pip install pytest pytest-cov flask flask-testing

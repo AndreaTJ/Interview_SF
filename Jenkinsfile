@@ -5,6 +5,9 @@ pipeline {
 
         stage('Install Dependencies'){
             steps{
+
+                sh 'chmod u+r+x dependencies.sh'
+
                 sh './scripts/dependencies.sh'
             }
         }

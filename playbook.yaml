@@ -1,0 +1,19 @@
+---
+
+- name: Install docker
+  become: true
+  hosts: group_all
+  roles:
+  - docker
+  
+- name: Initialize docker swarm
+  become: true
+  hosts: master
+  roles:
+  - master
+
+- name: Add worker to swarm
+  become: true
+  hosts: worker
+  roles:
+  - worker

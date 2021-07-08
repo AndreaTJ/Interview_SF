@@ -1,0 +1,32 @@
+
+version: '3.7'
+services:
+  service1:
+    image: andreatj/service1
+    build: ./service1
+    environment: 
+    - DATABASE_URI=mysql+pymysql://root:root@34.68.21.59/flaskdb
+    ports: 
+    - target: 5000
+      published: 5000
+    deploy:
+      replicas: 2
+
+  service2:
+    image: andreatj/service2
+    build: ./service2
+    deploy:
+      replicas: 2
+
+  service3:
+    image: andreatj/service3
+    build: ./service3
+    deploy:
+      replicas: 2
+  service4:
+    image: andreatj/service4
+    build: ./service4
+    deploy: 
+      replicas: 2
+  
+

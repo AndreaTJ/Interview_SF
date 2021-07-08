@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Travel Generator</title>
+
+</head>
+
+<body>
+    <style>
+
+        table, th, td {border: 1px solid black;
+        text-align: center;
+    }    
+
+        body {font-family: Arial, Helvetica, sans-serif;}
+    </style>
+
+    <header>
+        ---
+    </header>
+    <section>
+        <br>
+        <br>
+
+       
+
+        <div> This summer, you can go to <span style="background-color:Tomato;">{{country}}</span>, but you can only spend: <span style="background-color:DodgerBlue;">{{money}}</span> £</div>
+
+      
+
+       <br>
+       <br>
+
+       {% if result%}
+
+       <h2>Last destinations</h2>
+
+       <table>
+           <tr>
+               <th>Country</th>
+               <th>Budget(£)</th>
+           </tr>
+           {% for res in result%}
+           <tr>
+               <td>{{ res.country }}</td>
+               <td>{{ res.money }}</td>
+           </tr>
+           
+           {% endfor %}
+           
+       </table>
+       {% endif %}
+    </section>
+    <footer>
+        &copy; 2020 
+    </footer>
+</body>
+</html>

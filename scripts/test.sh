@@ -1,4 +1,5 @@
 
+pwd
 cd service2
 pytest
 cd service3

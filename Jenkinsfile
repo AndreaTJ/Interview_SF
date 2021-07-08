@@ -50,11 +50,13 @@ pipeline {
 
         stage('Deploy'){
             steps{
-                sh 'scp docker-compose.yaml jenkins@35.184.174.59:docker-compose.yaml && sudo docker-compose push'
+                sh 'scp docker-compose.yaml jenkins@35.184.174.59:docker-compose.yaml && docker-compose push'
                 sh "ssh 35.184.174.59 sudo docker stack deploy --compose-file docker-compose.yaml flaskapp"
                
             }
         } 
+
+        
         
         stage('LoadBalancer'){
             steps{

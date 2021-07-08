@@ -49,12 +49,8 @@ pipeline {
 
         stage('Deploy'){
             steps{
-                sh 'scp docker-compose.yaml jenkins@35.184.174.59:docker-compose.yaml' 
-                docker.withRegistry('https://registry.hub.docker.com', 'credentials-id') 
-                
-                {
-                sh 'ssh 35.184.174.59 sudo docker-compose push'
-                }
+                sh 'scp docker-compose.yaml jenkins@35.184.174.59:docker-compose.yaml'
+                sh 'sudo docker-compose push'
                 sh "ssh 35.184.174.59 sudo docker stack deploy --compose-file docker-compose.yaml flaskapp"
                
             }

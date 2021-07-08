@@ -49,8 +49,8 @@ pipeline {
 
         stage('Deploy'){
             steps{
-                sh 'scp docker-compose.yaml jenkins@35.184.174.59:docker-compose.yaml && docker-compose push'
-                sh "ssh 35.184.174.59 docker stack deploy --compose-file docker-compose.yaml flaskapp"
+                sh 'scp docker-compose.yaml jenkins@35.184.174.59:docker-compose.yaml && sudo docker-compose push'
+                sh "ssh 35.184.174.59 sudo docker stack deploy --compose-file docker-compose.yaml flaskapp"
                
             }
         } 
@@ -58,9 +58,9 @@ pipeline {
         stage('LoadBalancer'){
             steps{
                 sh 'scp nginx/nginx.conf jenkins@35.225.141.154:nginx'
-                sh "ssh jenkins@35.225.141.154 docker service rm nginx-loadbalancer"
-                sh "ssh jenkins@35.225.141.154 docker service create -d -p 80:80 --name nginx-loadbalancer --mount type=bind,source=/home/jenkins/nginx.conf,target=/etc/nginx/nginx.conf nginx:alpine"
-                sh "ssh jenkins@35.225.141.154 docker service update --replicas 4 nginx-loadbalancer"
+                sh "ssh jenkins@35.225.141.154 sudo docker service rm nginx-loadbalancer"
+                sh "ssh jenkins@35.225.141.154 sudo docker service create -d -p 80:80 --name nginx-loadbalancer --mount type=bind,source=/home/jenkins/nginx.conf,target=/etc/nginx/nginx.conf nginx:alpine"
+                sh "ssh jenkins@35.225.141.154 sudo docker service update --replicas 4 nginx-loadbalancer"
 
             }
         }

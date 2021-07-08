@@ -50,7 +50,7 @@ pipeline {
         stage('Deploy'){
             steps{
                 sh 'scp docker-compose.yaml jenkins@35.184.174.59:docker-compose.yaml' 
-                docker.withRegistry('https://hub.docker.com/', 'credentials-id') 
+                docker.withRegistry('https://registry.hub.docker.com', 'credentials-id') 
                 
                 {
                 sh 'ssh 35.184.174.59 sudo docker-compose push'

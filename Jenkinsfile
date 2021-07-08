@@ -2,6 +2,12 @@
 pipeline {
     agent any
     stages {
+
+        stage('Install Dependencies'){
+            steps{
+                sh './scripts/dependencies.sh'
+            }
+        }
       
         stage('Test'){
             steps{

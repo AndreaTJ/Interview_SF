@@ -2,7 +2,7 @@
 version: '3.7'
 services:
   service1:
-    image: andreatj/service1
+    image: docker.io/andreatj/service1
     build: ./service1
     environment: 
     - DATABASE_URI=mysql+pymysql://root:root@34.68.21.59/flaskdb
@@ -13,18 +13,18 @@ services:
       replicas: 2
 
   service2:
-    image: andreatj/service2
+    image: docker.io/andreatj/service2
     build: ./service2
     deploy:
       replicas: 2
 
   service3:
-    image: andreatj/service3
+    image: docker.io/andreatj/service3
     build: ./service3
     deploy:
       replicas: 2
   service4:
-    image: andreatj/service4
+    image: docker.io/andreatj/service4
     build: ./service4
     deploy: 
       replicas: 2

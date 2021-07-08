@@ -7,7 +7,7 @@ pipeline {
             steps{
 
                 dir("scripts") {
-                        sh 'chmod x dependencies.sh'}
+                        sh 'chmod +x dependencies.sh'}
                 
                 sh './scripts/dependencies.sh'
             }

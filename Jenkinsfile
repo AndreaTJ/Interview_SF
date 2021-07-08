@@ -3,7 +3,7 @@ pipeline {
     agent any
     stages {
 
-        /*
+        
 
         stage('Install Dependencies'){
             steps{
@@ -46,7 +46,7 @@ pipeline {
             }
         } 
         
-        */
+        
 
         stage('Deploy'){
             steps{

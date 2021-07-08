@@ -1,8 +1,8 @@
 
 pwd
 cd service2
-pytest
-cd service3
-pytest
-cd service4
-pytest
+python3 -m pytest --cov=app
+cd ../service3
+python3 -m pytest --cov=app
+cd ../service4
+python3 -m pytest --cov=app

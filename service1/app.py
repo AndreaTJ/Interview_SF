@@ -10,7 +10,7 @@ api = 'http://service4:5001'
 ###############
 
 
-app.config['SQLALCHEMY_DATABASE_URI']= "mysql+pymysql://root:root@34.68.21.59/flaskdb"
+app.config['SQLALCHEMY_DATABASE_URI']= "mysql+pymysql://interview:pacopaco@34.70.125.119/flaskdb"
 
 db = SQLAlchemy(app)
 

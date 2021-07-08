@@ -5,7 +5,7 @@ services:
     image: andreatj/service1
     build: ./service1
     environment: 
-    - DATABASE_URI=mysql+pymysql://interview:pacopaco@34.70.125.119/flaskdb
+    - DATABASE_URI=mysql+pymysql://root:pacopaco@34.70.125.119/flaskdb
     ports: 
     - target: 5000
       published: 5000

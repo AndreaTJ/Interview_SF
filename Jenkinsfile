@@ -17,18 +17,12 @@ pipeline {
       
         stage('Test'){
             steps{
+
+            dir("scripts") {
+                        sh 'chmod +x test.sh'}
                 
-                //  dir("service1") {sh "python3 -m pytest --cov=app"}
-               
-                dir("service2") {
-                        sh "python3 -m pytest --cov=app"
-                }
-                 dir("service3") {
-                        sh "python3 -m pytest --cov=app"
-                }
-                 dir("service4") {
-                        sh "python3 -m pytest --cov=app"
-                }
+                sh './scripts/test.sh'  
+                
             }
         }
          
